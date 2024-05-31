@@ -1,0 +1,27 @@
+{% extends 'todoApp/base.html' %}
+
+{% block content %}
+
+<body>
+<br> <br>
+<div class="container bg-light shadow-m form-layout">
+    {% load crispy_forms_tags %}
+    <form method="post">
+        {% csrf_token %}
+        {{form.title|as_crispy_field}}
+        <br>
+        {{form.description|as_crispy_field}}
+        <br>
+        {{form.complete|as_crispy_field}}
+    
+        <button class="btn btn-primary w-100 p-2">Save</button>
+    </form>
+    <br>
+    <a class="btn btn-secondary w-100" href="{% url 'dashboard' %}">return</a>
+    
+
+</div>
+
+</body>
+
+{% endblock %}

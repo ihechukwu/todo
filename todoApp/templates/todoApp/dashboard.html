@@ -1,0 +1,24 @@
+{% extends 'todoApp/base.html' %}
+
+
+{% block content %}
+<body>
+<br> <br>
+    <a class="btn btn-primary" href="{% url 'create-task' %}">Add task</a>
+    <table>
+        <tr>
+            <th>Item</th>
+            
+        </tr>
+        
+            {% for task in user_task %}
+            <tr>
+            <td>{{task.title}}</td>
+            <td><a href="{% url 'task' task.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+        
+    </table>
+
+</body>
+{% endblock %}
